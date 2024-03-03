@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:500");
+
+.box1 {
+  position: absolute;
+  width: 180px;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  justify-content: center; /*align the text in the middle of the box*/
+  align-items: center;
+  border-radius: 50px;
+  /* box-shadow: 0 5px 50px #000000; */
+  font-family: "Poppins", sans-serif;
+}
+.spinner {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+}
+.btn1 {
+  position: relative;
+  width: 10px;
+  height: 40px;
+  /* background-attachment: #444; */
+  color: black !important;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  text-shadow: 0 0 5px black 0 0 10px black;
+  cursor: pointer;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.btn2 {
+  position: relative;
+  width: 10px;
+  height: 40px;
+  /* background-attachment: #444; */
+  color: black;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  text-shadow: 0 0 5px black 0 0 10px black;
+  cursor: pointer;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.btn:active {
+  font-size: 1.25em;
+  box-shadow: inset 0 0 15px #000000e6;
+}
+.progress {
+  position: relative;
+  width: 60px;
+  height: 10px;
+  background: #222;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+#meter {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  background: #0f0;
+  border-radius: 20px;
+  filter: drop-shadow(0 0 2.5px #0f0) drop-shadow(0 0 10px #0f0);
+  transition: 0.3s;
+}
+#output {
+  position: relative;
+  width: 25px;
+  color: black;
+
+  font-size: 1.2em;
+}

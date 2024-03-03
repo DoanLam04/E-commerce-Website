@@ -1,0 +1,20 @@
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+.bg-footer {
+  background-color: #e6e6e6;
+}
+.dxl-footer ul {
+  list-style-type: none;
+  list-style-position: outside;
+  margin: 0;
+  padding: 0;
+}
+.dxl-mainmenu a:hover {
+  display: block;
+}
