@@ -31,7 +31,6 @@ $list = Product::join('category', 'category.id', '=', 'product.category_id')
 
     <!-- Main content -->
     <section class="content">
-
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
@@ -105,9 +104,6 @@ $list = Product::join('category', 'category.id', '=', 'product.category_id')
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
-
-
-
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

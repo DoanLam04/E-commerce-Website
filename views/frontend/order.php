@@ -15,7 +15,7 @@ $list_order = Order::join('orderdetail', 'orderdetail.order_id', '=', 'order.id'
     ->join('user', 'user.id', '=', 'order.user_id')
     ->where('user.id', '=', $_SESSION['logincustomer_id'])
     ->orderBy('order.created_at', 'desc')
-    ->select('user.name', 'user.email', 'user.phone', 'order.*')
+    ->select('user.name', 'user.email as email', 'user.phone', 'order.*')
     ->distinct()->get();
 
 ?>

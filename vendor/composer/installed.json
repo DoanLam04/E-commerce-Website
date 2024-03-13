@@ -422,21 +422,21 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v10.33.0",
-            "version_normalized": "10.33.0.0",
+            "version": "v10.47.0",
+            "version_normalized": "10.47.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "8cebe8112d612a9ce8025a1bce22ca5cc5c1308f"
+                "reference": "385a67f5351be38c5c6f28d58f7d76cbaffcaa02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/8cebe8112d612a9ce8025a1bce22ca5cc5c1308f",
-                "reference": "8cebe8112d612a9ce8025a1bce22ca5cc5c1308f",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/385a67f5351be38c5c6f28d58f7d76cbaffcaa02",
+                "reference": "385a67f5351be38c5c6f28d58f7d76cbaffcaa02",
                 "shasum": ""
             },
             "require": {
-                "brick/math": "^0.9.3|^0.10.2|^0.11",
+                "brick/math": "^0.9.3|^0.10.2|^0.11|^0.12",
                 "ext-pdo": "*",
                 "illuminate/collections": "^10.0",
                 "illuminate/container": "^10.0",
@@ -444,6 +444,10 @@
                 "illuminate/macroable": "^10.0",
                 "illuminate/support": "^10.0",
                 "php": "^8.1"
+            },
+            "conflict": {
+                "carbonphp/carbon-doctrine-types": ">=3.0",
+                "doctrine/dbal": ">=4.0"
             },
             "suggest": {
                 "doctrine/dbal": "Required to rename columns and drop SQLite columns (^3.5.1).",
@@ -455,7 +459,7 @@
                 "illuminate/pagination": "Required to paginate the result set (^10.0).",
                 "symfony/finder": "Required to use Eloquent model factories (^6.2)."
             },
-            "time": "2023-11-15T19:02:12+00:00",
+            "time": "2024-03-04T21:32:24+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {

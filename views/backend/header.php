@@ -48,6 +48,7 @@ $user_row = User::where('status', '=', 1)->first();
                         <i class="fas fa-search"></i>
                     </a>
                     <div class="navbar-search-block">
+                        <!-- ************************************ -->
                         <form class="form-inline" action="index.php?option=search" method="post">
                             <div class="input-group input-group-sm">
                                 <input class="form-control form-control-navbar" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
@@ -182,17 +183,18 @@ $user_row = User::where('status', '=', 1)->first();
                         </a>
                     </div>
                 </div>
-
+                <!--******************************************** -->
                 <!-- SidebarSearch Form -->
                 <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
+                    <form class="form-inline" action="index.php?option=search" method="post">
+                        <div class="input-group" data-widget="sidebar-search">
+                            <input class="form-control form-control-sidebar" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-sidebar" type="submit">
+                                    <i class="fas fa-search fa-fw"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
                 </div>
 
                 <!-- Sidebar Menu -->
@@ -204,14 +206,14 @@ $user_row = User::where('status', '=', 1)->first();
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-cubes"></i>
-                                <p>Sản Phẩm<i class="right fas fa-angle-left"></i>
+                                <p>Products<i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="index.php?option=product" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Tất Cả Sản Phẩm</p>
+                                        <p>All products</p>
                                     </a>
                                 </li>
                             </ul>
@@ -219,18 +221,14 @@ $user_row = User::where('status', '=', 1)->first();
                         <li class="nav-item">
                             <a href="index.php?option=brand" class="nav-link">
                                 <i class="nav-icon fas fa-copyright"></i>
-                                <p>
-                                    Thương hiệu
-                                </p>
+                                <p> Brand </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a href="index.php?option=category" class="nav-link">
                                 <i class="nav-icon fas fa-globe"></i>
-                                <p>
-                                    Danh Mục sản phẩm
-                                </p>
+                                <p> Category </p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -254,22 +252,22 @@ $user_row = User::where('status', '=', 1)->first();
                         <li class="nav-item">
                             <a href="index.php?option=admin" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
-                                <p>Thành Viên</p>
+                                <p>Member</p>
                             </a>
                         </li>
-                        <li class="nav-header">Khách Hàng</li>
+                        <li class="nav-header">Guest</li>
 
                         <li class="nav-item">
                             <a href="index.php?option=user" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
-                                <p>Khách Hàng</p>
+                                <p>Customer</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="index.php?option=order" class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
-                                    Đơn Hàng
+                                    Order
                                     <!-- <span class="badge badge-info right">2</span> -->
                                 </p>
                             </a>
@@ -278,7 +276,7 @@ $user_row = User::where('status', '=', 1)->first();
                             <a href="index.php?option=contact" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
-                                    Liên Hệ
+                                    Contact
                                 </p>
                             </a>
                         </li>
@@ -286,15 +284,14 @@ $user_row = User::where('status', '=', 1)->first();
                             <a href="index.php?option=post" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
-                                    Bài Viết
+                                    Post
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
-                                <p>
-                                    Đánh giá
+                                <p> Feedback
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -314,7 +311,7 @@ $user_row = User::where('status', '=', 1)->first();
                                 <li class="nav-item">
                                     <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Điện Thoại</p>
+                                        <p>Phone</p>
                                     </a>
                                 </li>
                             </ul>

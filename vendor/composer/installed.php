@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'doanxuanlam/ban-day-thoi-trang',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'f5d370b5e1ef027f61d27c9eff7d3ede80bc5539',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'doanxuanlam/ban-day-thoi-trang' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'f5d370b5e1ef027f61d27c9eff7d3ede80bc5539',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -83,9 +83,9 @@
             'dev_requirement' => false,
         ),
         'illuminate/database' => array(
-            'pretty_version' => 'v10.33.0',
-            'version' => '10.33.0.0',
-            'reference' => '8cebe8112d612a9ce8025a1bce22ca5cc5c1308f',
+            'pretty_version' => 'v10.47.0',
+            'version' => '10.47.0.0',
+            'reference' => '385a67f5351be38c5c6f28d58f7d76cbaffcaa02',
             'type' => 'library',
             'install_path' => __DIR__ . '/../illuminate/database',
             'aliases' => array(),
