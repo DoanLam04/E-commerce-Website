@@ -6,14 +6,14 @@
 
 use Application\Models\Product;
 
-$list_product = Product::where([['status', '!=', 0]])
+$list_product = Product::where([['status', '=', 1]])
     ->get();
 ?>
 <section class="maincontent">
     <div class="container bg-body-tertiary">
         <div class="row">
             <?php foreach ($list_product as $item) : ?>
-                <div class="col-sm-3 bg-white gap-3">
+                <div class="col-sm-3  bg-white gap-3">
                     <div class="row">
                         <div class="product-item">
                             <div class="product-image">
@@ -40,15 +40,14 @@ $list_product = Product::where([['status', '!=', 0]])
                             </div>
                             <div class="product-cart-hearth-eye my-2 bg-white">
                                 <div class="row bg-white">
-                                    <div class="col-8">
-                                        <a href="index.php?option=cart&addcat=<?= $item->id; ?>" class="btn btn-sm btn-secondary  form-control form-control"> Thêm vào giỏ</a>
+                                    <div class="col-8"></div>
+                                    <div class="col-2">
+                                        <button class="btn btn-sm fs-4 "><i class="fa-regular fa-heart" style="color: red;"></i></button>
                                     </div>
                                     <div class="col-2">
-                                        <button class="btn btn-sm btn-info"><i class="fa-regular fa-heart"></i></button>
+                                        <a href="index.php?option=cart&addcat=<?= $item->id; ?>"> <button class="btn btn-sm fs-4 "> <i class="fa-solid fa-cart-plus"></i></button></a>
                                     </div>
-                                    <div class="col-2">
-                                        <button class="btn btn-sm btn-info"><i class="fa-regular fa-eye"></i></button>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

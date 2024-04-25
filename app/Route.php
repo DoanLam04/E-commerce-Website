@@ -37,11 +37,6 @@ class Route
             $pathView .= $_REQUEST['option'] . '/';
             if (isset($_REQUEST['cat'])) {
                 $pathView .= $_REQUEST['cat'] . '.php';
-                if (isset($_REQUEST['search'])) {
-                    $pathView .= $_REQUEST['option'] . ".php";
-                } else {
-                    $pathView .= $_REQUEST['option'] . ".php";
-                }
             } else {
                 $pathView .= 'index.php';
             }

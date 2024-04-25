@@ -156,7 +156,7 @@ session_start();
             <div class="inputGroup inputGroup1">
                 <label for="email1">Email</label>
                 <input type="text" id="email" class="email" name="username" maxlength="256" />
-                <p class="helper helper1">email@domain.com</p>
+                <p class="helper helper1 p-1">Administrator</p>
                 <span class="indicator"></span>
             </div>
             <div class="inputGroup inputGroup2">

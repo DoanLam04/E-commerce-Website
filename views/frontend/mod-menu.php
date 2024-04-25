@@ -3,14 +3,14 @@
 
 use Application\Models\Brand;
 
-$list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
+$list = Brand::where('status', '=', 1)->orderBy('created_at', 'DESC')->get();
 ?>
 <?php require_once "../thietkewepLam/app/Models/Category.php"; ?>
 <?php
 
 use Application\Models\Category;
 
-$list_category = Category::where([['status', '!=', 0], ['parent_id', '=', 0]])
+$list_category = Category::where([['status', '=', 1], ['parent_id', '=', 0]])
     ->orderBy('sort_order', 'ASC')->get();
 ?>
 
@@ -32,7 +32,7 @@ $list_category = Category::where([['status', '!=', 0], ['parent_id', '=', 0]])
                             <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
                                 <?php foreach ($list as $row) : ?>
                                     <li>
-                                        <a class="dropdown-item" href="index.php?option=product-brand&id=<?= $row->id; ?>"> <?= $row->name; ?></a>
+                                        <a class="dropdown-item" href="index.php?option=pro-route&p=product-brand&id=<?= $row->id; ?>"> <?= $row->name; ?></a>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>

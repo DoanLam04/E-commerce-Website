@@ -4,7 +4,6 @@
 <!-- -----------------=---------------------------------------->
 <section class="dxl-maincontent">
     <?php require_once "mod-sliders.php" ?>
-    <?php require_once "product-main.php"; ?>
     <?php require_once "product.php"; ?>
 
 </section>

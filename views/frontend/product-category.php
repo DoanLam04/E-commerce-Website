@@ -13,7 +13,7 @@ $id = $_REQUEST['id'];
 // $slug=$_REQUEST['slug'];
 $category = Category::find($id);
 
-$list_product = Product::where([['status', '!=', 0], ['category_id', '=', $id]])
+$list_product = Product::where([['status', '=', 1], ['category_id', '=', $id]])
     ->orderBy('product.created_at', 'DESC')->get();
 ?>
 <section class="maincontent">
@@ -35,7 +35,9 @@ $list_product = Product::where([['status', '!=', 0], ['category_id', '=', $id]])
                                     </div>
                                     <div class="product-name py-1">
                                         <div class="row">
-                                        <a href="index.php?option=product-detail&id=<?= $item->id; ?>"><p class="fs-6 py-1"><?= $item->name; ?></p></a>
+                                            <a href="index.php?option=product-detail&id=<?= $item->id; ?>">
+                                                <p class="fs-6 py-1"><?= $item->name; ?></p>
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="prodcut-price">
@@ -50,14 +52,15 @@ $list_product = Product::where([['status', '!=', 0], ['category_id', '=', $id]])
                                     </div>
                                     <div class="product-cart-hearth-eye my-2">
                                         <div class="row">
-                                            <div class="col-8">
-                                                <a href="index.php?option=cart&addcat=<?= $item->id; ?>" class="btn btn-sm btn-secondary  form-control form-control"> Thêm vào giỏ</a>
+                                            <div class="col-6"></div>
+                                            <div class="col-2">
+                                                <a href="index.php?option=cart&addcat=<?= $item->id; ?>"> <button class="btn btn-sm fs-4 "> <i class="fa-solid fa-cart-plus"></i></button></a>
                                             </div>
                                             <div class="col-2">
-                                                <button class="btn btn-sm btn-info"><i class="fa-regular fa-heart"></i></button>
+                                                <button class="btn btn-sm fs-4 "><i class="fa-regular fa-heart"></i></button>
                                             </div>
                                             <div class="col-2">
-                                                <button class="btn btn-sm btn-info"><i class="fa-regular fa-eye"></i></button>
+                                                <button class="btn btn-sm  fs-4"><i class="fa-regular fa-eye"></i></button>
                                             </div>
                                         </div>
                                     </div>

@@ -4,11 +4,7 @@ require_once '../app/Models/Category.php';
 
 use Application\Models\Category;
 
-$list = Category::join('orderdetail', 'orderdetail.order_id', '=', 'order.id')
-    ->join('user', 'user.id', '=', 'order.user_id')
-    ->where('status', '!=', 0)
-    ->select('order.*', 'user.name as username', 'user.email as user_email', 'user.phone as user_phone')
-    ->orderBy('order.created_at', 'DESC')->get();
+$list = Category::where([['status', '!=', 0]])->orderBy('created_at', 'desc')->get();
 
 ?>
 <?php require_once '../views/backend/header.php' ?>

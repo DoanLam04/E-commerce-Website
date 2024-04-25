@@ -63,6 +63,25 @@ if (isset($_POST['DANGNHAP'])) {
 require_once "../thietkewepLam//views/frontend/header.php";
 
 require_once "../thietkewepLam/views/frontend/mod-menu.php" ?>
+<style>
+    .field {
+        position: relative;
+    }
+
+    .field #password+i {
+        position: absolute;
+        right: 20px;
+        top: 72%;
+        color: #ccc;
+        cursor: pointer;
+        transform: translateY(-50%);
+    }
+
+    .field #password+i.active:before {
+        color: #333;
+        content: "\f070";
+    }
+</style>
 <section class="maincontent">
     <form action="index.php?option=customer&f=login" method="POST">
         <div class="container">
@@ -80,10 +99,10 @@ require_once "../thietkewepLam/views/frontend/mod-menu.php" ?>
                             <input type="text" required name="username" id="username" placeholder="Tên Đăng Nhập Hoặc Email" class="form-control">
 
                         </div>
-                        <div class="my-4 bt-4">
+                        <div class="field my-4 bt-4">
                             <label for="password" class="ms-1 mb-1">Mật Khẩu</label>
                             <input type="password" required name="password" id="password" placeholder="Nhập mật khẩu" class="form-control">
-
+                            <i class="fas fa-eye"></i>
                         </div>
                         <div class="row">
                             <div class=" col-md-6  my-2">
@@ -102,17 +121,14 @@ require_once "../thietkewepLam/views/frontend/mod-menu.php" ?>
                     <?php else : ?>
                         <div class="mb-3">
                             <div class="alert alert-info">
-                                Bạn Đã Đăng Nhập
+                                <?= $message_alert;  ?>
                             </div>
                         </div>
                     <?php endif; ?>
                 </div>
-
-
             </div>
         </div>
-        </div>
-
     </form>
+    <script src="../thietkewepLam/public/js/password-event.js"></script>
 </section>
 <?php require_once  'views/frontend/footer.php' ?>

@@ -18,3 +18,58 @@ a:hover {
 .dxl-mainmenu a:hover {
   display: block;
 }
+/* 
+.nav-home-aside {
+  width: 250px;
+} */
+.nav-home-aside .menu-category {
+  margin: 0;
+  padding: 0;
+}
+.nav-home-aside .menu-category li {
+  position: relative;
+  display: block;
+  border-bottom: 1px solid #e5e7ea;
+}
+.nav-home-aside .menu-category a {
+  color: #212529;
+}
+.nav-home-aside .menu-category > li > a {
+  display: block;
+  padding: 10px 0px;
+}
+.nav-home-aside .menu-category .submenu {
+  display: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 250px;
+  background: #fff;
+}
+.nav-home-aside .menu-category .submenu li {
+  list-style: none;
+}
+.nav-home-aside .menu-category .submenu li a {
+  padding: 10px 16px;
+  display: block;
+}
+.nav-home-aside .menu-category a:hover {
+  color: #ff6a00;
+  transition: all 0.3s;
+}
+.nav-home-aside .menu-category li:hover .submenu {
+  display: block;
+  margin-left: 0px;
+}
+.nav-home-aside .menu-category .has-submenu > a:after {
+  content: "\203A";
+  font-size: 24px;
+  color: #999;
+  line-height: 18px;
+  font-weight: bold;
+  float: right;
+}

@@ -185,7 +185,7 @@ $user_row = User::where('status', '=', 1)->first();
                 </div>
                 <!--******************************************** -->
                 <!-- SidebarSearch Form -->
-                <div class="form-inline">
+                <!-- <div class="form-inline">
                     <form class="form-inline" action="index.php?option=search" method="post">
                         <div class="input-group" data-widget="sidebar-search">
                             <input class="form-control form-control-sidebar" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
@@ -195,7 +195,7 @@ $user_row = User::where('status', '=', 1)->first();
                                 </button>
                             </div>
                         </div>
-                </div>
+                </div> -->
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">

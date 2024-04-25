@@ -6,9 +6,9 @@ switch ($f) {
             break;
         }
     case 'logout': {
-           unset($_SESSION['logincustomer']);
-           header('location:index.php?option=customer-login');
-           break;
+            unset($_SESSION['logincustomer']);
+            header('location:index.php?option=customer-login');
+            break;
         }
     case 'register': {
             require_once('views/frontend/customer-register.php');

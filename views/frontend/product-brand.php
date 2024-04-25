@@ -10,7 +10,7 @@ use Application\Models\Product;
 
 $id = $_REQUEST['id'];
 $brand = Brand::find($id);
-$list_product = Product::where([['status', '!=', 0], ['brand_id', '=', $id]])
+$list_product = Product::where([['status', '=', 1], ['brand_id', '=', $id]])
     ->orderBy('id', 'DESC')->get();
 ?>
 <section class="maincontent">
@@ -52,14 +52,15 @@ $list_product = Product::where([['status', '!=', 0], ['brand_id', '=', $id]])
                                     </div>
                                     <div class="product-cart-hearth-eye my-2">
                                         <div class="row">
-                                            <div class="col-8">
-                                                <a href="index.php?option=cart&addcat=<?= $item->id; ?>" class="btn btn-sm btn-secondary  form-control form-control"> Thêm vào giỏ</a>
+                                            <div class="col-6"></div>
+                                            <div class="col-2">
+                                                <a href="index.php?option=cart&addcat=<?= $item->id; ?>"> <button class="btn btn-sm fs-4 "> <i class="fa-solid fa-cart-plus"></i></button></a>
                                             </div>
                                             <div class="col-2">
-                                                <button class="btn btn-sm btn-info"><i class="fa-regular fa-heart"></i></button>
+                                                <button class="btn btn-sm fs-4 "><i class="fa-regular fa-heart"></i></button>
                                             </div>
                                             <div class="col-2">
-                                                <button class="btn btn-sm btn-info"><i class="fa-regular fa-eye"></i></button>
+                                                <button class="btn btn-sm  fs-4"><i class="fa-regular fa-eye"></i></button>
                                             </div>
                                         </div>
                                     </div>

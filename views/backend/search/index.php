@@ -2,12 +2,12 @@
 <?php
 
 
-require_once '../app/Models/Post.php';
+// require_once '../app/Models/Post.php';
 
-require_once '../app/Models/Product.php';
+// require_once '../app/Models/Product.php';
 
-use Application\Models\Product;
-use Application\Models\Post;
+// use Application\Models\Product;
+// use Application\Models\Post;
 // Kết nối với cơ sở dữ liệu
 $conn = mysqli_connect("localhost", "root", "", "thietkeweplam");
 $keyword = $_REQUEST['search'];

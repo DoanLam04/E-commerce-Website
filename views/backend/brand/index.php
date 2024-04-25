@@ -14,12 +14,12 @@ $list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tất Cả Thương Hiệu</h1>
+                    <h1>Brand</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Tất Cả Thương Hiệu</li>
+                        <li class="breadcrumb-item active">Brand</li>
                     </ol>
                 </div>
             </div>
@@ -34,16 +34,18 @@ $list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
             <div class="card-header">
                 <div class="row">
                     <div class="col-md-6">
-                        <button class="btn btn-sm btn-danger">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
+                        <a href="#">
+                            <button class="btn btn-sm btn-danger">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </a>
                     </div>
                     <div class="col-md-6 text-right">
                         <a href="index.php?option=brand&cat=create">
-                            <button class="btn btn-sm btn-success"><i class="fas fa-plus">Thêm</i></button>
+                            <button class="btn btn-sm btn-success"><i class="fas fa-plus"> Add new</i></button>
                         </a>
                         <a href="index.php?option=brand&cat=trash">
-                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash">Thùng Rác</i></button>
+                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"> Trash</i></button>
                         </a>
                     </div>
                 </div>
@@ -56,9 +58,9 @@ $list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                                 <input type="checkbox" name="checkAll" id="checkAll" />
                             </th>
                             <th class="text-center;" style="width:100px;">Logo</th>
-                            <th class="text-center;">Tên Thương Hiệu</th>
-                            <th class="text-center;" style="width:180px;">Ngày Tạo</th>
-                            <th class="text-center;" style="width:220px;">Chức Năng</th>
+                            <th class="text-center;">Name</th>
+                            <th class="text-center;" style="width:180px;">Date</th>
+                            <th class="text-center;" style="width:220px;">Edit</th>
                             <th class="text-center;" style="width:30px;">Id</th>
                         </tr>
                     </thead>
@@ -70,7 +72,7 @@ $list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                                 </td>
 
                                 <td>
-                                    <img src="../public/images/brand/<?= $row->image; ?>" alt="hinh" class="img-fluid">
+                                    <img src="../public/images/brand/<?= $row->image; ?>" alt="<?= $row->name; ?>" class="img-fluid">
                                 </td>
                                 <td> <?= $row->name; ?></td>
 
@@ -82,21 +84,11 @@ $list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                                     <?php else : ?>
                                         <a href="index.php?option=brand&cat=status&id=<?= $row->id; ?>" class="btn btn-sm btn-danger">
                                             <i class="fas fa-toggle-off"></i></a>
-                                    <?php endif; ?><a href="index.php?option=brand&cat=show&id=<?= $row->id; ?>
-                                " class="btn btn-sm btn-info">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                    <a href="index.php?option=brand&cat=edit&id=<?= $row->id; ?>
-                                " class="btn btn-sm btn-primary">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="index.php?option=brand&cat=delete&id=<?= $row->id; ?>
-                                " class="btn btn-sm btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                    <?php endif; ?>
+                                    <a href="index.php?option=brand&cat=show&id=<?= $row->id; ?>" class="btn btn-sm btn-info"> <i class="fas fa-eye"></i> </a>
+                                    <a href="index.php?option=brand&cat=edit&id=<?= $row->id; ?>" class="btn btn-sm btn-primary"> <i class="fas fa-edit"></i> </a>
+                                    <a href="index.php?option=brand&cat=delete&id=<?= $row->id; ?>" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> </a>
                                 </td>
-
-
                                 <td class="text-center;"></td>
                             </tr>
                         <?php endforeach; ?>
