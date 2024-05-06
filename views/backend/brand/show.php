@@ -4,6 +4,8 @@ require_once '../app/Models/User.php';
 
 use Application\Models\Brand;
 use Application\Models\User;
+use Application\Libraries\MyClass;
+
 
 
 $id = $_REQUEST['id'];
@@ -11,7 +13,7 @@ $Brand = Brand::find($id);
 $user_id = $Brand->created_by;
 $user_id1 = $Brand->updated_by;
 if ($Brand == null) {
-    // MyClass::set_flash('message', ['type' => 'danger', 'msg' => 'mau tin khong ton tai']);
+    MyClass::set_flash('message', ['type' => 'danger', 'msg' => 'mau tin khong ton tai']);
     header("location:index.php?option=brand");
 }
 $User = User::where([['status', '!=', 0]])->get();

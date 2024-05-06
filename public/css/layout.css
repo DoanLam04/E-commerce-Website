@@ -1,3 +1,6 @@
+p {
+  font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+}
 a {
   color: black;
   text-decoration: none;
@@ -22,6 +25,8 @@ a:hover {
 .nav-home-aside {
   width: 250px;
 } */
+/* product-box */
+
 .nav-home-aside .menu-category {
   margin: 0;
   padding: 0;

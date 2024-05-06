@@ -1,6 +1,6 @@
-<?php require_once "header.php" ?>
+<?php require_once "../thietkewepLam/views/frontend/components/header.php"  ?>
 <!-- -----------------=---------------------------------------->
-<?php require_once "mod-menu.php" ?>
+<?php require_once "../thietkewepLam/views/frontend/components/mod-menu.php" ?>
 
 <?php
 
@@ -104,5 +104,5 @@ mysqli_close($conn);
 ?>
 
 <!-- -----------------=---------------------------------------->
-<?php require_once "footer.php" ?>
+<?php require_once "views/frontend/components/footer.php" ?>
 <!-- -----------------=---------------------------------------->

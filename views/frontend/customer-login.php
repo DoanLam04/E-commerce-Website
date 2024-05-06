@@ -60,9 +60,9 @@ if (isset($_POST['DANGNHAP'])) {
 
 ?>
 <?php
-require_once "../thietkewepLam//views/frontend/header.php";
+require_once "../thietkewepLam//views/frontend/components/header.php";
 
-require_once "../thietkewepLam/views/frontend/mod-menu.php" ?>
+?>
 <style>
     .field {
         position: relative;
@@ -87,7 +87,7 @@ require_once "../thietkewepLam/views/frontend/mod-menu.php" ?>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <?php require_once "../thietkewepLam/views/frontend/mod-sliderlogin.php" ?>
+                    <?php require_once "../thietkewepLam/views/frontend/components/mod-sliderlogin.php" ?>
 
                 </div>
                 <div class="col-md-1"></div>
@@ -131,4 +131,4 @@ require_once "../thietkewepLam/views/frontend/mod-menu.php" ?>
     </form>
     <script src="../thietkewepLam/public/js/password-event.js"></script>
 </section>
-<?php require_once  'views/frontend/footer.php' ?>
+<?php require_once  'views/frontend/components/footer.php' ?>

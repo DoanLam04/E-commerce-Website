@@ -28,7 +28,7 @@ $list_category = Category::where([['status', '=', 1], ['parent_id', '=', 0]])
                             <a class="nav-link active" aria-current="page" href="index.php?option=home">Home</a>
                         </li>
                         <li class="nav-item dropdown ">
-                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Thương Hiệu</a>
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Brand</a>
                             <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
                                 <?php foreach ($list as $row) : ?>
                                     <li>
@@ -40,7 +40,7 @@ $list_category = Category::where([['status', '=', 1], ['parent_id', '=', 0]])
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Phổ biến
+                                Popular
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <?php foreach ($list_category as $row) : ?>

@@ -1,14 +1,34 @@
 <?php
 require_once '../app/Models/Brand.php';
-
+require_once '../app/Library/MyClass.php';
 
 use Application\Models\Brand;
 
+use Application\Libraries\MyClass;
+
+
+
 $list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
 ?>
-<?php require_once '../views/backend/header.php' ?>
+<?php require_once '../views/backend/header.php';
+
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    <?php
+    // Kiểm tra xem đã có thông báo được thiết lập hay chưa
+
+    if (MyClass::exists_flash('message')) {
+        $message = MyClass::get_flash('message');
+        // Hiển thị thông báo
+        echo '<div id="Alert" class="alert alert-' . $message['type'] . '">' . $message['msg'] . '</div>
+        <script>
+        setTimeout(function() {
+            document.getElementById("Alert").style.display="none";
+        },3000);
+        </script>        
+        ';
+    } ?>
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
@@ -86,7 +106,7 @@ $list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                                             <i class="fas fa-toggle-off"></i></a>
                                     <?php endif; ?>
                                     <a href="index.php?option=brand&cat=show&id=<?= $row->id; ?>" class="btn btn-sm btn-info"> <i class="fas fa-eye"></i> </a>
-                                    <a href="index.php?option=brand&cat=edit&id=<?= $row->id; ?>" class="btn btn-sm btn-primary"> <i class="fas fa-edit"></i> </a>
+                                    <a href="index.php?option=brand&cat=update&id=<?= $row->id; ?>" class="btn btn-sm btn-primary"> <i class="fas fa-edit"></i> </a>
                                     <a href="index.php?option=brand&cat=delete&id=<?= $row->id; ?>" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> </a>
                                 </td>
                                 <td class="text-center;"></td>

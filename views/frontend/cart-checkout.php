@@ -1,6 +1,6 @@
-<?php require_once "header.php" ?>
+<?php require_once "./views/frontend/components/header.php" ?>
 <!-- -----------------=---------------------------------------->
-<?php require_once "mod-menu.php" ?>
+<?php require_once "./views/frontend/components/mod-menu.php" ?>
 <!-- -----------------=---------------------------------------->
 <?php require_once "app/Models/User.php" ?>
 <?php require_once "app/Models/Product.php" ?>
@@ -89,5 +89,5 @@ if (isset($_SESSION['contentcart'])) {
 </form>
 
 <!-- -----------------=---------------------------------------->
-<?php require_once "footer.php" ?>
+<?php require_once "./views/frontend/components/footer.php" ?>
 <!-- -----------------=---------------------------------------->

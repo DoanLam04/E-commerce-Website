@@ -1,8 +1,8 @@
-<?php require_once "views/frontend/header.php" ?>
+<?php require_once "./views/frontend/components/header.php" ?>
 <?php require_once "app/Models/Product.php" ?>
 <?php require_once "app/Models/Brand.php" ?>
-<?php require_once "mod-menu.php" ?>
-<?php require_once "mod-sliders.php" ?>
+<?php require_once "./views/frontend/components/mod-menu.php";
+require_once "./views/frontend/components/mod-sliders.php" ?>
 <?php
 
 use Application\Models\Brand;
@@ -75,4 +75,4 @@ $list_product = Product::where([['status', '=', 1], ['brand_id', '=', $id]])
     </div>
 </section>
 
-<?php require_once "views/frontend/footer.php" ?>
+<?php require_once "./views/frontend/components/footer.php" ?>

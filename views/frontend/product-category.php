@@ -1,4 +1,4 @@
-<?php require_once "views/frontend/header.php" ?>
+<?php require_once "./views/frontend/components/header.php" ?>
 <?php require_once "app/Models/Product.php" ?>
 <?php require_once "app/Models/Category.php" ?>
 <?php require_once "mod-menu.php" ?>
@@ -75,4 +75,4 @@ $list_product = Product::where([['status', '=', 1], ['category_id', '=', $id]])
     </div>
 </section>
 
-<?php require_once "views/frontend/footer.php" ?>
+<?php require_once "./views/frontend/components/footer.php" ?>

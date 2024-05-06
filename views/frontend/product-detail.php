@@ -1,31 +1,35 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<style>
-    .img-thumbnail {
-        width: 200px;
-        height: 200px;
-    }
 
-    .container {
-        margin-top: 50px;
-    }
-</style>
 
-<?php require_once "views/frontend/header.php" ?>
+<?php require_once "views/frontend/components/header.php" ?>
 <?php require_once "app/Models/Product.php" ?>
-<?php require_once 'views/frontend/mod-menu.php' ?>
+<?php require_once "app/Models/Product_image.php" ?>
+<?php require_once 'views/frontend/components/mod-menu.php' ?>
 <?php
 
 use Application\Models\Product;
+use Application\Models\Product_image;
+
 
 $id = $_REQUEST['id'];
 $list_product = Product::find($id);
+$list_images = Product_image::where('product-id', '=', $id)
+    ->get(); // Lấy tất cả các hình ảnh có product-id tương ứng với id của sản phẩm
 
 ?>
 <section>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img src="../thietkewepLam/public/images/products/<?= $list_product->image; ?>" alt="Product" class="img-thumbnail">
+                <div class="row">
+                    <?php foreach ($list_images as $image) : ?>
+                        <div class="col-md-6">
+                            <img src="../thietkewepLam/public/images/products/<?= $image->url; ?>" alt="Product" class="img-thumbnail">
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+
             </div>
             <div class="col-md-6">
                 <h2><?= $list_product->name; ?></h2>
@@ -50,4 +54,4 @@ $list_product = Product::find($id);
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<?php require_once "views/frontend/footer.php" ?>
+<?php require_once "views/frontend/components/footer.php" ?>
