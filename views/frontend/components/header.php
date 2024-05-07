@@ -28,7 +28,7 @@
         <div class="container py-2 ">
             <div class="row">
                 <div class="col-md-1 d-none d-md-block pt-3">
-                    <a href="index.php?option=home">
+                    <a href="index.php">
                         <img class="img-fluid w-100%" src="public/images/logonike.png" alt="logo">
                     </a>
                 </div>

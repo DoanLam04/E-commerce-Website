@@ -1,5 +1,7 @@
 <?php
 require_once "../thietkewepLam/app/Models/User.php";
+require_once "../thietkewepLam/app/Controller/AuthController.php";
+
 ?>
 <?php
 require_once "../thietkewepLam/vendor/autoload.php";
@@ -7,13 +9,14 @@ require_once "../thietkewepLam/config/database.php" ?>
 <?php
 
 use Application\Models\User;
+use Application\Authcontroller;
 
+$auth = new AuthController();
+
+$auth->checkAuth();
 $id = $_REQUEST['id'];
-if (!isset($_SESSION['logincustomer'])) {
-    header('location:index.php?option=customer&f=login');
-} else {
-    $user_row = User::where([['status', '=', 1], ['id', '=', $id]])->first();
-}
+$user_row = User::where([['status', '=', 1], ['id', '=', $id]])->first();
+
 ?>
 
 

@@ -7,10 +7,8 @@
 use Application\Models\Product;
 use Application\Models\Product_image;
 
-
 $list_product = Product::where([['status', '=', 1]])
     ->get();
-
 
 ?>
 
@@ -62,8 +60,6 @@ $list_product = Product::where([['status', '=', 1]])
                                 </a>
                             </button>
                         </div>
-
-
                     </div>
 
                 </div>
@@ -74,60 +70,50 @@ $list_product = Product::where([['status', '=', 1]])
 <?php foreach ($list_product as $product) {
     $list_images = Product_image::where('product-id', '=', $product->id)
         ->get(); // Lấy tất cả các hình ảnh có product-id tương ứng với id của sản phẩm
+    // Check if there are at least 2 images associated with the product
+    if (count($list_images) >= 2) {
+        $second_image = $list_images[1]; // Retrieve the second image
 ?>
 
-    <script>
-        // Đợi cho tất cả các phần tử img trong class product-image load hoàn tất
-        document.addEventListener("DOMContentLoaded", function() {
-            const productImages = document.querySelectorAll('.product-image img[id="<?= $product->id ?>"]');
+        <script>
+            // Đợi cho tất cả các phần tử img trong class product-image load hoàn tất
+            document.addEventListener("DOMContentLoaded", function() {
+                const productImages = document.querySelectorAll('.product-image img[id="<?= $product->id ?>"]');
 
-            // Lặp qua từng phần tử img
-            productImages.forEach(function(img) {
-                let originalSrc = img.getAttribute('src');
-                let hoverSrc = '';
-                let isHovered = false;
+                // Lặp qua từng phần tử img
+                productImages.forEach(function(img) {
+                    let originalSrc = img.getAttribute('src');
+                    let hoverSrc = '';
+                    let isHovered = false;
 
-                // Lấy đường dẫn của hình ảnh khi hover qua từ mảng list_images
-                <?php foreach ($list_images as $image) : ?>
-                    hoverSrc = '../thietkewepLam/public/images/products/<?= $image->url ?>';
-                <?php endforeach; ?>
+                    // Lấy đường dẫn của hình ảnh khi hover qua từ mảng list_images
+                    <?php foreach ($list_images as $image) : ?>
+                        hoverSrc = '../thietkewepLam/public/images/products/<?= $second_image->url ?>';
+                    <?php endforeach; ?>
 
-                // Gán sự kiện mouseover để thay đổi hình ảnh khi di chuột qua
-                img.addEventListener('mouseover', function() {
-                    if (!isHovered) {
-                        isHovered = true;
-                        img.src = hoverSrc;
-                        img.style.transition = "1s ease-in-out";
-                        // Sử dụng jQuery
-                        $(img).fadeIn(300); // Hiện hình ảnh với hiệu ứng chuyển động trong 300ms
+                    // Gán sự kiện mouseover để thay đổi hình ảnh khi di chuột qua
+                    img.addEventListener('mouseover', function() {
+                        if (!isHovered) {
+                            isHovered = true;
+                            img.src = hoverSrc;
+                            img.style.transition = "1s ease-in-out";
 
-                        // Sử dụng GSAP
-                        gsap.to(img, {
-                            duration: 0.3,
-                            opacity: 1
-                        }); // Sử dụng GSAP để hiển thị hình ảnh với hiệu ứng mượt mà
-                    }
-                });
+                        }
+                    });
 
-                // Gán sự kiện mouseout để khôi phục hình ảnh gốc khi di chuột ra khỏi
-                img.addEventListener('mouseout', function() {
-                    if (isHovered) {
-                        isHovered = false;
-                        img.src = originalSrc;
-                        img.style.transition = "1s ease-in-out";
-                        // Sử dụng jQuery
-                        $(img).fadeIn(300); // Hiện hình ảnh với hiệu ứng chuyển động trong 300ms
+                    // Gán sự kiện mouseout để khôi phục hình ảnh gốc khi di chuột ra khỏi
+                    img.addEventListener('mouseout', function() {
+                        if (isHovered) {
+                            isHovered = false;
+                            img.src = originalSrc;
+                            img.style.transition = "1s ease-in-out";
 
-                        // Sử dụng GSAP
-                        gsap.to(img, {
-                            duration: 0.3,
-                            opacity: 1
-                        }); // Sử dụng GSAP để hiển thị hình ảnh với hiệu ứng mượt mà
-                    }
+                        }
+                    });
+
                 });
 
             });
-
-        });
-    </script>
-<?php } ?>
+        </script>
+<?php }
+} ?>

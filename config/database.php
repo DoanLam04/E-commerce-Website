@@ -18,6 +18,7 @@ $capsule->addConnection([
 // Set the event dispatcher used by Eloquent models... (optional)
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
+use Illuminate\Contracts\Pagination\Paginator;
 
 $capsule->setEventDispatcher(new Dispatcher(new Container));
 

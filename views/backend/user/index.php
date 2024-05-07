@@ -59,7 +59,8 @@ $list = User::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                             <th class="text-center;" style="width: 100px;">Name</th>
                             <th class="text-center;" style="width:100px;">Email</th>
                             <th class="text-center;" style="width:100px;">Phone</th>
-                            <th class="text-center;" style="width:100px;">Usernam</th>
+                            <th class="text-center;" style="width:100px;">Username</th>
+
                             <th class="text-center;" style="width:200px;"></th>
 
                         </tr>
@@ -78,6 +79,7 @@ $list = User::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                                 <td><?= $row->email; ?></td>
                                 <td><?= $row->phone; ?></td>
                                 <td><?= $row->username; ?></td>
+
                                 <td class="text-center">
                                     <?php if ($row->status == 1) : ?>
                                         <a href="index.php?option=user&cat=status&id=<?= $row->id; ?>" class="btn btn-sm btn-success">

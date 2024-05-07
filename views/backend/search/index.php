@@ -24,67 +24,69 @@ if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $list_product = $result;
 ?>
-
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>Tất Cả Sản Phẩm</h1>
+        <section>
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1>Tất Cả Sản Phẩm</h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                </ol>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            </ol>
-                        </div>
-                    </div>
-                </div><!-- /.container-fluid -->
-            </section>
-            <div class="card-body">
-                <table class="table table-tripped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th class="text-center;" style="width:30px;">
-                                <input type="checkbox" name="checkAll" id="checkAll" />
-                            </th>
-                            <th class="text-center;" style="width:100px;">Hình</th>
-                            <th class="text-center;" style="width:150px;">Tên</th>
-                            <th class="text-center;" style="width:70px;">Brand</th>
-                            <th class="text-center;" style="width:70px;">Giá</th>
-                            <th class="text-center;" style="width:70px;">Giá sale</th>
-                            <th class="text-center;" style="width:100px;">Chi tiết</th>
-                            <th class="text-center;" style="width:150px;"></th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($list_product as $product) : ?>
+                    </div><!-- /.container-fluid -->
+                </section>
+                <div class="card-body">
+                    <table class="table table-tripped table-bordered table-hover">
+                        <thead>
                             <tr>
-                                <td class="text-center">
-                                    <input type="checkbox" name="checkAll()" value="<?= $product['id']; ?>" />
-                                </td>
-                                <td class="text-center">
-                                    <img class="img-fluid" src="../public/images/products/<?= $product["image"] ?>" alt="<?= $product["name"] ?>">
-                                </td>
-                                <td class="text-center"> <?= $product["name"] ?> </td>
-                                <td class="text-center"><?= $product["product_brand_name"] ?> </td>
-                                <td class="text-center"><?= $product["price"] ?> </td>
-                                <td class="text-center"><?= $product["price_sale"] ?> </td>
-                                <td class="text-center"><?= $product["detail"] ?> </td>
-                                <td class="text-center"></td>
-                            </tr> <?php endforeach; ?>
-                    </tbody>
-                </table>
+                                <th class="text-center;" style="width:30px;">
+                                    <input type="checkbox" name="checkAll" id="checkAll" />
+                                </th>
+                                <th class="text-center;" style="width:100px;">Hình</th>
+                                <th class="text-center;" style="width:150px;">Tên</th>
+                                <th class="text-center;" style="width:70px;">Brand</th>
+                                <th class="text-center;" style="width:70px;">Giá</th>
+                                <th class="text-center;" style="width:70px;">Giá sale</th>
+                                <th class="text-center;" style="width:100px;">Chi tiết</th>
+                                <th class="text-center;" style="width:150px;"></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($list_product as $product) : ?>
+                                <tr>
+                                    <td class="text-center">
+                                        <input type="checkbox" name="checkAll()" value="<?= $product['id']; ?>" />
+                                    </td>
+                                    <td class="text-center">
+                                        <img class="img-fluid" src="../public/images/products/<?= $product["image"] ?>" alt="<?= $product["name"] ?>">
+                                    </td>
+                                    <td class="text-center"> <?= $product["name"] ?> </td>
+                                    <td class="text-center"><?= $product["product_brand_name"] ?> </td>
+                                    <td class="text-center"><?= $product["price"] ?> </td>
+                                    <td class="text-center"><?= $product["price_sale"] ?> </td>
+                                    <td class="text-center"><?= $product["detail"] ?> </td>
+                                    <td class="text-center"></td>
+                                </tr> <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php
+            }
+        } else { ?>
+                <h4 style="color:red;">Không có sản phẩm nào phù hợp với từ khóa tìm kiếm.</h4>
             <?php
         }
-    } else { ?>
-            <h4 style="color:red;">Không có sản phẩm nào phù hợp với từ khóa tìm kiếm.</h4>
-        <?php
-    }
-        ?>
-        <?php
-        // Ngắt kết nối với cơ sở dữ liệu
-        mysqli_close($conn);
-        require_once '../views/backend/footer.php';
+            ?>
+            <?php
+            // Ngắt kết nối với cơ sở dữ liệu
+            mysqli_close($conn);
+            ?>
+        </section>
+        <?php require_once '../views/backend/footer.php';
         ?>

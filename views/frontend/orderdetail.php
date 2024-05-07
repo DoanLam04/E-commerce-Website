@@ -1,5 +1,5 @@
-<?php require_once "../thietkewepLam/views/frontend/header.php" ?>
-<?php require_once "../thietkewepLam/views/frontend/mod-menu.php" ?>
+<?php require_once "../thietkewepLam/views/frontend/components/header.php" ?>
+<?php require_once "../thietkewepLam/views/frontend/components/mod-menu.php" ?>
 
 <?php
 require_once "../thietkewepLam/app/Models/Order.php";
@@ -106,4 +106,4 @@ foreach ($orderdetail as $detail) {
             </div>
         </div>
     </div>
-    <?php require_once  'views/frontend/footer.php' ?>
+    <?php require_once  'views/frontend/components/footer.php' ?>

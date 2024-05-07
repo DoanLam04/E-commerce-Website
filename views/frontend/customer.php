@@ -1,29 +1,35 @@
 <?php
+require_once 'app/Controller/AuthController.php';
+
+use Application\Authcontroller;
+
+$auth = new Authcontroller();
+
+
 $f = $_REQUEST['f'];
 switch ($f) {
     case 'login': {
-            require_once('views/frontend/customer-login.php');
+            require_once 'views/frontend/customer-login.php';
             break;
         }
     case 'logout': {
-            unset($_SESSION['logincustomer']);
-            header('location:index.php?option=customer-login');
+            $auth->logOut();
             break;
         }
     case 'register': {
-            require_once('views/frontend/customer-register.php');
+            require_once 'views/frontend/customer-register.php';
             break;
         }
     case 'forgotten': {
-            require_once('views/frontend/customer-forgotten.php');
+            require_once 'views/frontend/customer-forgotten.php';
             break;
         }
     case 'profile': {
-            require_once('views/frontend/customer-profile.php');
+            require_once 'views/frontend/customer-profile.php';
             break;
         }
     default: {
-            require_once('views/frontend/error-404.php');
+            require_once 'views/frontend/error-404.php';
             break;
         }
 }

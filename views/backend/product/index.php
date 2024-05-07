@@ -3,11 +3,22 @@ require_once '../app/Models/Product.php';
 
 use Application\Models\Product;
 
+$current = isset($_GET['page']) ? $_GET['page'] : 1; // Trang hiện tại, mặc định là trang 1 nếu không có tham số page
+
+$perPage = 5;
+
+$offset = ($current - 1) * $perPage; // Số phần tử cần bỏ qua từ trang trước
 $list = Product::join('category', 'category.id', '=', 'product.category_id')
     ->join('brand', 'product.brand_id', '=', 'brand.id')
     ->where('product.status', '!=', 0)
     ->orderBy('created_at', 'DESC')
-    ->select("product.*", "category.name as category_name", "brand.name as brand_name")->get();
+    ->select("product.*", "category.name as category_name", "brand.name as brand_name")
+    ->offset($offset)
+    ->limit($perPage)
+    ->get();
+$totalItems =  Product::where('status', '!=', 0)->count(); // Tổng số sản phẩm
+$pages = ceil($totalItems / $perPage); // Số trang cần phân chia
+
 
 ?>
 <?php require_once '../views/backend/header.php' ?>
@@ -111,8 +122,35 @@ $list = Product::join('category', 'category.id', '=', 'product.category_id')
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
+                <!-- Display pagination links -->
+                <ul class="pagination">
+                    <!-- Liên kết đến trang đầu tiên -->
+                    <li class="page-item <?php echo ($current == 1) ? 'disabled' : ''; ?>">
+                        <a class="page-link" href="index.php?option=product&cat=index&page=1">First</a>
+                    </li>
+                    <!-- Liên kết đến trang trước -->
+                    <li class="page-item <?php echo ($current == 1) ? 'disabled' : ''; ?>">
+                        <a class="page-link" href="index.php?option=product&cat=index&page=<?php echo ($current > 1) ? ($current - 1) : 1; ?>">Previous</a>
+                    </li>
 
+                    <!-- Liên kết tới các trang -->
+                    <?php for ($i = 1; $i <= $pages; $i++) : ?>
+                        <li class="page-item <?php echo ($i == $current) ? 'active' : ''; ?>">
+                            <a class="page-link" href="index.php?option=product&cat=index&page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                        </li>
+                    <?php endfor; ?>
+
+                    <!-- Liên kết đến trang tiếp theo -->
+                    <li class="page-item <?php echo ($current == $pages) ? 'disabled' : ''; ?>">
+                        <a class="page-link" href="index.php?option=product&cat=index&page=<?php echo ($current < $pages) ? ($current + 1) : $pages; ?>">Next</a>
+                    </li>
+                    <!-- Liên kết đến trang cuối cùng -->
+                    <li class="page-item <?php echo ($current == $pages) ? 'disabled' : ''; ?>">
+                        <a class="page-link" href="index.php?option=product&cat=index&page=<?php echo $pages; ?>">Last</a>
+                    </li>
+                </ul>
             </div>
+
             <!-- /.card-footer-->
         </div>
         <!-- /.card -->
